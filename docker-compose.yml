@@ -1,0 +1,19 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+
+  backend:
+    build:
+      context: ./whatsapp-server
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./whatsapp-server/auth_info_baileys:/app/auth_info_baileys
+    restart: always
