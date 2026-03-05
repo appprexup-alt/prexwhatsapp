@@ -2,9 +2,9 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install --legacy-peer-deps --progress=false
 COPY . .
-RUN npm run build
+RUN npm run build -- --logLevel info
 
 FROM nginx:stable-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
