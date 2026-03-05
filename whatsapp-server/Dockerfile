@@ -16,7 +16,7 @@ RUN npm run build
 # Este Dockerfile se usará para el SERVICE BACKEND (whatsapp-server)
 FROM node:20-alpine
 WORKDIR /app
-COPY whatsapp-server/package*.json ./
+COPY package*.json ./
 RUN npm install
-COPY whatsapp-server/ .
+COPY . .
 CMD ["node", "index.js"]
