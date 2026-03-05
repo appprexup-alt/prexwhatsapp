@@ -35,7 +35,7 @@ npm install -g pm2
 Si usas Git:
 ```bash
 cd /var/www
-git clone <tu-repositorio> crm-whatsapp
+git clone https://github.com/appprexup-alt/prexwhatsapp.git
 cd crm-whatsapp
 ```
 
