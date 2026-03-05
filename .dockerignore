@@ -1,0 +1,9 @@
+node_modules
+.git
+.github
+dist
+whatsapp-server/node_modules
+whatsapp-server/auth_info_baileys
+.env
+*.md
+easy-install.sh
