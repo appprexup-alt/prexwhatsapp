@@ -45,7 +45,7 @@ Coolify detectará automáticamente los archivos que creamos.
 
 ### Paso E: Configurar Dominios
 1. En la configuración del servicio **frontend**, busca el campo **Domains**.
-2. Escribe tu dominio o subdominio: `https://tu-crm.com`.
+2. Escribe tu dominio o subdominio: `https://app.prexup.com`.
 3. Coolify gestionará el certificado SSL (HTTPS) por ti automáticamente via Let's Encrypt.
 
 ---
