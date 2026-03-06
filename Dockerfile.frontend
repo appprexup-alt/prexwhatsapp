@@ -7,13 +7,7 @@ COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
 COPY . .
-
-# Vite reads env vars prefixed with VITE_ at build time
-ARG VITE_SUPABASE_URL
-ARG VITE_SUPABASE_ANON_KEY
-ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
-ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
-
+# Coolify injects VITE_* env vars automatically via build secrets
 RUN npm run build
 
 # Serve stage
