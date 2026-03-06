@@ -124,6 +124,15 @@ const Layout: React.FC<LayoutProps> = ({ children, onLogout, currentUser }) => {
   const SidebarContent = ({ collapsed = false }: { collapsed?: boolean }) => (
     <>
       <div className={`p-2 flex flex-col items-center justify-center shrink-0 ${collapsed ? 'mb-2' : 'mb-4'} relative overflow-hidden`}>
+        {/* Toggle Sidebar Button at Top */}
+        <button
+          onClick={toggleSidebar}
+          className={`absolute top-2 right-2 p-1.5 text-text-muted hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 border border-border-color hover:border-primary/40 active:scale-95 z-10 ${collapsed ? 'relative top-0 right-0 mb-4' : ''}`}
+          title={collapsed ? 'Expandir menú' : 'Colapsar menú'}
+        >
+          {collapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
+        </button>
+
         {hasCustomLogo ? (
           <div className={`w-full ${collapsed ? 'h-14' : 'h-28'} flex items-center justify-center overflow-hidden transition-all duration-300`}>
             <img
@@ -174,20 +183,16 @@ const Layout: React.FC<LayoutProps> = ({ children, onLogout, currentUser }) => {
 
       <div className={`${collapsed ? 'p-2' : 'p-4'} border-t border-border-color space-y-2 bg-surface/50 backdrop-blur-md shrink-0`}>
         {!collapsed ? (
-          <div className="bg-surface p-2.5 rounded-xl border border-border-color flex items-center gap-2.5 mb-2 shadow-lg shadow-black/5">
-            <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 border border-border-color overflow-hidden shadow-inner uppercase transition-transform hover:scale-110">
+          <div className="bg-surface p-2.5 rounded-xl border border-border-color flex items-center justify-between mb-2 shadow-lg shadow-black/5">
+            <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 border border-border-color overflow-hidden shadow-inner uppercase transition-transform hover:scale-110">
               {currentUser.avatar ? (
                 <img src={currentUser.avatar} alt="Avatar" className="w-full h-full object-cover" />
               ) : (
                 currentUser.name.charAt(0)
               )}
             </div>
-            <div className="overflow-hidden min-w-0">
-              <p className="text-[12px] font-bold text-text-main truncate leading-tight tracking-tight">{currentUser.name}</p>
-              <p className="text-[9px] text-text-muted truncate capitalize font-bold mt-0.5 opacity-40">{currentUser.role}</p>
-            </div>
-            <NavLink to="/profile" className="ml-auto p-1.5 text-text-muted hover:text-primary hover:bg-primary/10 rounded-lg transition-all" title="Mi Perfil">
-              <Settings size={14} />
+            <NavLink to="/profile" className="p-2 text-text-muted hover:text-primary hover:bg-primary/10 rounded-lg transition-all" title="Mi Perfil">
+              <Settings size={18} />
             </NavLink>
           </div>
         ) : (
@@ -214,10 +219,6 @@ const Layout: React.FC<LayoutProps> = ({ children, onLogout, currentUser }) => {
           </button>
         </div>
 
-        <button onClick={toggleSidebar} className={`w-full flex items-center justify-center gap-1.5 px-3 py-2 mt-1.5 text-text-muted hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 text-[10px] font-bold border border-border-color hover:border-primary/40 active:scale-95`} title={collapsed ? 'Expandir menú' : 'Colapsar menú'}>
-          {collapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
-          {!collapsed && <span>Colapsar</span>}
-        </button>
       </div>
     </>
   );
