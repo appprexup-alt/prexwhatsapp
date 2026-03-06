@@ -1,6 +1,6 @@
 # Dockerfile.frontend - Build and serve
 # Build stage
-FROM node:20-slim AS build
+FROM node:20 AS build
 WORKDIR /app
 
 # Accept build arguments for Vite
@@ -12,8 +12,8 @@ ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
 ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
 
 COPY package*.json ./
-# Use npm ci for more reliable builds and avoid audit/fund to save memory
-RUN npm ci --no-audit --no-fund
+# Use npm install for better compatibility in case of lockfile issues
+RUN npm install
 
 COPY . .
 RUN npm run build
