@@ -1,8 +1,7 @@
 node_modules
+dist
+.env.local
+.env
 .git
 .github
-whatsapp-server/node_modules
-whatsapp-server/auth_info_baileys
-.env
-*.md
-easy-install.sh
+*.log
