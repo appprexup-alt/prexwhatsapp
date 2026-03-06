@@ -462,10 +462,7 @@ const UsersManager: React.FC = () => {
     if (userToSave.id) {
       result = await db.updateUser(userToSave as User);
     } else {
-      result = await db.addUser({
-        ...userToSave,
-        id: crypto.randomUUID(),
-      } as User);
+      result = await db.addUser(userToSave as User);
     }
 
     if (result.success) {

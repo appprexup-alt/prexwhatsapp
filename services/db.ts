@@ -372,7 +372,7 @@ class SupabaseDatabase {
     // Check duplicates
     const { data: existing } = await supabase.from('users')
       .select('id')
-      .or(`email.eq."${newUser.email}",username.eq."${newUser.username}"`)
+      .or(`email.eq."${newUser.email}",username.eq."${newUser.username.trim()}"`)
       .maybeSingle();
 
     if (existing) return { success: false, message: 'Email o Usuario ya existe.' };
