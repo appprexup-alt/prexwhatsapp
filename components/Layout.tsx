@@ -124,15 +124,6 @@ const Layout: React.FC<LayoutProps> = ({ children, onLogout, currentUser }) => {
   const SidebarContent = ({ collapsed = false }: { collapsed?: boolean }) => (
     <>
       <div className={`p-2 flex flex-col items-center justify-center shrink-0 ${collapsed ? 'mb-2' : 'mb-4'} relative overflow-hidden`}>
-        {/* Toggle Sidebar Button at Top */}
-        <button
-          onClick={toggleSidebar}
-          className={`absolute top-2 right-2 p-1.5 text-text-muted hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 border border-border-color hover:border-primary/40 active:scale-95 z-10 ${collapsed ? 'relative top-0 right-0 mb-4' : ''}`}
-          title={collapsed ? 'Expandir menú' : 'Colapsar menú'}
-        >
-          {collapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
-        </button>
-
         {hasCustomLogo ? (
           <div className={`w-full ${collapsed ? 'h-14' : 'h-28'} flex items-center justify-center overflow-hidden transition-all duration-300`}>
             <img
