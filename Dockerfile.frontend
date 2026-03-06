@@ -1,14 +1,20 @@
 # Dockerfile.frontend - Build and serve
-# Build stage
-FROM node:20 AS build
+FROM node:20-slim AS build
 WORKDIR /app
 
+# Ensure we have a clean environment and basic tools
+RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
+
 COPY package*.json ./
+# Install with explicit path and legacy-peer-deps
 RUN npm install --legacy-peer-deps
 
 COPY . .
-# Coolify injects VITE_* env vars automatically via build secrets
-RUN npm run build
+
+# Use npx directly and ensure PATH includes node_modules/.bin
+# Explicitly use /bin/bash to avoid /bin/sh quirks
+SHELL ["/bin/bash", "-c"]
+RUN npx vite build
 
 # Serve stage
 FROM nginx:stable-alpine
