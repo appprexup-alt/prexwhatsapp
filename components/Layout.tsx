@@ -181,44 +181,35 @@ const Layout: React.FC<LayoutProps> = ({ children, onLogout, currentUser }) => {
         })}
       </nav>
 
-      <div className={`${collapsed ? 'p-2' : 'p-4'} border-t border-border-color space-y-2 bg-surface/50 backdrop-blur-md shrink-0`}>
-        {!collapsed ? (
-          <div className="bg-surface p-2.5 rounded-xl border border-border-color flex items-center justify-between mb-2 shadow-lg shadow-black/5">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 border border-border-color overflow-hidden shadow-inner uppercase transition-transform hover:scale-110">
-              {currentUser.avatar ? (
-                <img src={currentUser.avatar} alt="Avatar" className="w-full h-full object-cover" />
-              ) : (
-                currentUser.name.charAt(0)
-              )}
-            </div>
-            <NavLink to="/profile" className="p-2 text-text-muted hover:text-primary hover:bg-primary/10 rounded-lg transition-all" title="Mi Perfil">
-              <Settings size={18} />
-            </NavLink>
-          </div>
-        ) : (
-          <NavLink to="/profile" className="flex items-center justify-center mb-2" title={currentUser.name}>
-            <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0 border border-border-color overflow-hidden shadow-inner uppercase transition-transform hover:scale-110">
-              {currentUser.avatar ? (
-                <img src={currentUser.avatar} alt="Avatar" className="w-full h-full object-cover" />
-              ) : (
-                currentUser.name.charAt(0)
-              )}
-            </div>
+      <div className={`${collapsed ? 'p-2' : 'p-3'} border-t border-border-color space-y-2 bg-surface/50 backdrop-blur-md shrink-0`}>
+        <div className={`flex ${collapsed ? 'flex-col' : 'flex-row'} items-center gap-2`}>
+          <NavLink
+            to="/profile"
+            className={`${collapsed ? 'w-full' : 'flex-1'} flex items-center justify-center gap-2 px-3 py-2 text-text-muted hover:bg-white/5 hover:text-primary rounded-lg transition-all duration-300 text-[10px] font-bold border border-border-color hover:border-primary/40 active:scale-95`}
+            title="Configuración"
+          >
+            <Settings size={14} />
+            {!collapsed && <span>Configuración</span>}
           </NavLink>
-        )}
 
-        <div className={`flex ${collapsed ? 'flex-col' : ''} items-center gap-1.5`}>
-          <button onClick={toggleTheme} className={`${collapsed ? 'w-full' : 'flex-1'} flex items-center justify-center gap-1.5 px-3 py-2 text-text-muted hover:bg-black/5 hover:text-primary rounded-lg transition-all duration-300 text-[10px] font-bold border border-border-color hover:border-border-color active:scale-95`} title={collapsed ? (theme === 'dark' ? 'Modo Día' : 'Modo Noche') : undefined}>
-            {theme === 'dark' ? <Moon size={14} /> : <Sun size={14} />}
-            {!collapsed && <span>{theme === 'dark' ? 'Noche' : 'Día'}</span>}
-          </button>
-
-          <button onClick={onLogout} className={`${collapsed ? 'w-full' : 'flex-1'} flex items-center justify-center gap-1.5 px-3 py-2 text-text-muted hover:text-danger hover:bg-danger/5 rounded-lg transition-all duration-300 text-[10px] font-bold border border-border-color hover:border-danger/20 active:scale-95 group`} title={collapsed ? 'Salir' : undefined}>
+          <button
+            onClick={onLogout}
+            className={`${collapsed ? 'w-full' : 'flex-1'} flex items-center justify-center gap-2 px-3 py-2 text-text-muted hover:text-danger hover:bg-danger/5 rounded-lg transition-all duration-300 text-[10px] font-bold border border-border-color hover:border-danger/20 active:scale-95 group`}
+            title="Salir"
+          >
             <LogOut size={14} className="group-hover:translate-x-0.5 transition-transform" />
             {!collapsed && <span>Salir</span>}
           </button>
         </div>
 
+        <button
+          onClick={toggleSidebar}
+          className={`w-full flex items-center justify-center gap-2 px-3 py-2 text-text-muted hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 text-[10px] font-bold border border-border-color hover:border-primary/40 active:scale-95`}
+          title={collapsed ? 'Expandir menú' : 'Colapsar menú'}
+        >
+          {collapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
+          {!collapsed && <span>Colapsar</span>}
+        </button>
       </div>
     </>
   );
