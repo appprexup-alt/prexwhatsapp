@@ -827,7 +827,7 @@ const ProjectsManager: React.FC = () => {
       await db.updateDeveloper(editingDev as Developer);
       addNotification({ title: 'Éxito', message: 'Proyecto actualizado correctamente.', type: 'success' });
     } else {
-      await db.addDeveloper({ ...editingDev, id: crypto.randomUUID() } as Developer);
+      await db.addDeveloper(editingDev as Developer);
       addNotification({ title: 'Éxito', message: 'Nuevo proyecto registrado.', type: 'success' });
     }
     setShowModal(false);
@@ -1136,7 +1136,7 @@ const PipelineManager: React.FC = () => {
   const handleAddStage = () => {
     if (!currentUser) return;
     const newStage: PipelineStage = {
-      id: crypto.randomUUID(),
+      id: '',
       label: 'Nueva Etapa',
       color: 'border-border-color',
       order: stages.length + 1,
@@ -1327,7 +1327,7 @@ const SourcesManager: React.FC = () => {
 
   const handleAdd = async () => {
     if (!newSource.trim()) return;
-    const res = await db.addSource({ id: crypto.randomUUID(), organizationId: '', name: newSource } as LeadSource);
+    const res = await db.addSource({ name: newSource } as LeadSource);
     if (res.success) {
       setNewSource('');
       load();
