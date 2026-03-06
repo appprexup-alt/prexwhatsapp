@@ -511,15 +511,15 @@ const UsersManager: React.FC = () => {
   );
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/20">
-            <Users size={20} />
+    <div className="space-y-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/20">
+            <Users size={16} />
           </div>
           <div>
-            <h3 className="text-[17px] font-bold text-text-main tracking-tight">Usuarios</h3>
-            <p className="text-[10px] text-text-muted font-bold opacity-40">Control de acceso y roles</p>
+            <h3 className="text-[15px] font-bold text-text-main tracking-tight">Usuarios</h3>
+            <p className="text-[9px] text-text-muted font-bold opacity-40">Control de acceso y roles</p>
           </div>
         </div>
 
@@ -535,71 +535,71 @@ const UsersManager: React.FC = () => {
           </div>
           <button
             onClick={() => { setEditingUser({ role: 'Agent', status: 'active', organizationId: currentUser?.organizationId }); setShowModal(true); }}
-            className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-xl flex items-center justify-center gap-2 text-[11px] font-bold shadow-xl shadow-primary/20 transition-all active:scale-95 shrink-0"
+            className="bg-primary hover:bg-primary/90 text-white px-3 py-1.5 rounded-xl flex items-center justify-center gap-2 text-[10px] font-bold shadow-xl shadow-primary/20 transition-all active:scale-95 shrink-0"
           >
-            <Plus size={16} /> Nuevo usuario
+            <Plus size={14} /> Nuevo usuario
           </button>
         </div>
       </div>
 
-      <div className="bg-surface/30 backdrop-blur-xl border border-white/5 rounded-[1.5rem] overflow-hidden shadow-2xl relative group">
+      <div className="bg-surface/30 backdrop-blur-xl border border-white/5 rounded-xl overflow-hidden shadow-2xl relative group">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
         <div className="overflow-x-auto custom-scrollbar relative z-10">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-white/5 bg-white/5">
-                <th className="px-6 py-4 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest first:pl-8">Colaborador</th>
-                <th className="px-6 py-4 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest">Contacto</th>
-                <th className="px-6 py-4 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest">Rol</th>
-                <th className="px-6 py-4 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest">Estado</th>
-                <th className="px-6 py-4 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest text-right last:pr-8">Acciones</th>
+                <th className="px-4 py-2.5 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest first:pl-6">Colaborador</th>
+                <th className="px-4 py-2.5 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest">Contacto</th>
+                <th className="px-4 py-2.5 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest">Rol</th>
+                <th className="px-4 py-2.5 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest">Estado</th>
+                <th className="px-4 py-2.5 text-[9px] font-bold text-text-muted opacity-60 uppercase tracking-widest text-right last:pr-6">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
               {filteredUsers.map(u => (
                 <tr key={u.id} className="hover:bg-white/5 transition-all group/row">
-                  <td className="px-6 py-4 first:pl-8">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-2xl bg-input-bg border-2 border-surface shadow-lg overflow-hidden flex items-center justify-center group-hover/row:scale-110 transition-transform relative">
-                        {u.avatar ? <img src={u.avatar} alt="" className="w-full h-full object-cover" /> : <UserIcon size={18} className="text-text-muted/40" />}
+                  <td className="px-4 py-2 first:pl-6">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-xl bg-input-bg border border-white/5 shadow-sm overflow-hidden flex items-center justify-center group-hover/row:scale-110 transition-transform relative">
+                        {u.avatar ? <img src={u.avatar} alt="" className="w-full h-full object-cover" /> : <UserIcon size={16} className="text-text-muted/40" />}
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-[13px] font-bold text-text-main tracking-tight group-hover/row:text-primary transition-colors">{u.username}</span>
-                        <span className="text-[10px] font-bold text-text-muted/60 lowercase italic">{u.name}</span>
+                        <span className="text-[12px] font-bold text-text-main tracking-tight group-hover/row:text-primary transition-colors">{u.username}</span>
+                        <span className="text-[9px] font-bold text-text-muted/60 lowercase italic">{u.name}</span>
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-[11px] font-bold text-text-muted/80 tracking-tight flex items-center gap-1.5">
-                        <Mail size={10} className="opacity-40" /> {u.email}
+                  <td className="px-4 py-2">
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-[10px] font-bold text-text-muted/80 tracking-tight flex items-center gap-1.5">
+                        <Mail size={9} className="opacity-40" /> {u.email}
                       </span>
-                      <span className="text-[10px] font-bold text-text-muted/40 flex items-center gap-1.5">
-                        <Phone size={10} className="opacity-40" /> {u.phone || 'Sin télefono'}
+                      <span className="text-[9px] font-bold text-text-muted/40 flex items-center gap-1.5">
+                        <Phone size={9} className="opacity-40" /> {u.phone || 'Sin télefono'}
                       </span>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-2">
                     <span className={`px-2.5 py-1 rounded-lg text-[9px] font-black border uppercase tracking-widest inline-flex items-center gap-1.5 ${u.role === 'SuperAdmin' ? 'bg-amber-500/10 text-amber-500 border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.1)]' : u.role === 'Admin' ? 'bg-primary/10 text-primary border-primary/20' : 'bg-secondary/10 text-secondary border-secondary/20'}`}>
                       <Shield size={10} />
                       {u.role === 'SuperAdmin' ? 'Super Admin' : u.role}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-2">
                     <div className="flex items-center gap-2">
-                      <span className={`relative flex h-2 w-2`}>
+                      <span className={`relative flex h-1.5 w-1.5`}>
                         <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${u.status === 'active' ? 'bg-green-400' : 'bg-transparent'}`}></span>
-                        <span className={`relative inline-flex rounded-full h-2 w-2 ${u.status === 'active' ? 'bg-green-500' : 'bg-red-500'}`}></span>
+                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${u.status === 'active' ? 'bg-green-500' : 'bg-red-500'}`}></span>
                       </span>
-                      <span className={`text-[10px] font-bold uppercase tracking-wider ${u.status === 'active' ? 'text-text-main' : 'text-text-muted opacity-40'}`}>
+                      <span className={`text-[9px] font-bold uppercase tracking-wider ${u.status === 'active' ? 'text-text-main' : 'text-text-muted opacity-40'}`}>
                         {u.status === 'active' ? 'Activo' : 'Inactivo'}
                       </span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-right last:pr-8">
-                    <div className="flex justify-end gap-2 opacity-0 group-hover/row:opacity-100 transition-all translate-x-2 group-hover/row:translate-x-0">
-                      <button onClick={() => { setEditingUser(u); setShowModal(true); }} className="w-8 h-8 flex items-center justify-center bg-white/5 hover:bg-white/10 text-text-muted hover:text-primary rounded-xl transition-all active:scale-95 hover:shadow-lg"><Edit size={14} /></button>
-                      <button onClick={() => handleDelete(u.id)} className="w-8 h-8 flex items-center justify-center bg-white/5 hover:bg-white/10 text-text-muted hover:text-danger rounded-xl transition-all active:scale-95 hover:shadow-lg"><Trash2 size={14} /></button>
+                  <td className="px-4 py-2 text-right last:pr-6">
+                    <div className="flex justify-end gap-1.5 opacity-0 group-hover/row:opacity-100 transition-all translate-x-2 group-hover/row:translate-x-0">
+                      <button onClick={() => { setEditingUser(u); setShowModal(true); }} className="w-7 h-7 flex items-center justify-center bg-white/5 hover:bg-white/10 text-text-muted hover:text-primary rounded-lg transition-all active:scale-95"><Edit size={12} /></button>
+                      <button onClick={() => handleDelete(u.id)} className="w-7 h-7 flex items-center justify-center bg-white/5 hover:bg-white/10 text-text-muted hover:text-danger rounded-lg transition-all active:scale-95"><Trash2 size={12} /></button>
                     </div>
                   </td>
                 </tr>
@@ -855,15 +855,15 @@ const ProjectsManager: React.FC = () => {
   );
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/20">
-            <Building size={20} />
+    <div className="space-y-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/20">
+            <Building size={16} />
           </div>
           <div>
-            <h3 className="text-[17px] font-bold text-text-main tracking-tight">Proyectos</h3>
-            <p className="text-[10px] text-text-muted font-bold opacity-40">Gestión de desarrollos inmobiliarios</p>
+            <h3 className="text-[15px] font-bold text-text-main tracking-tight">Proyectos</h3>
+            <p className="text-[9px] text-text-muted font-bold opacity-40">Gestión de desarrollos inmobiliarios</p>
           </div>
         </div>
 
@@ -886,26 +886,26 @@ const ProjectsManager: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
         {filteredProjects.map(d => (
-          <div key={d.id} className="bg-surface/30 backdrop-blur-xl border border-white/5 p-4 rounded-[1.5rem] shadow-sm hover:border-primary/30 transition-all group relative overflow-hidden">
-            <div className="flex justify-between items-start mb-4">
+          <div key={d.id} className="bg-surface/30 backdrop-blur-xl border border-white/5 p-3 rounded-xl shadow-sm hover:border-primary/30 transition-all group relative overflow-hidden">
+            <div className="flex justify-between items-start mb-2">
               <div className="flex flex-col flex-1 min-w-0 pr-2">
                 <h4 className="text-[13px] font-bold text-text-main truncate tracking-tight group-hover:text-primary transition-colors">{d.name}</h4>
-                <p className="text-[10px] font-bold text-text-muted/60 mt-1 truncate italic">{d.developerName || 'Constructora base'}</p>
+                <p className="text-[9px] font-bold text-text-muted/60 mt-0.5 truncate italic">{d.developerName || 'Constructora base'}</p>
               </div>
               <div className="flex gap-1 shrink-0">
                 <button
                   onClick={() => { setEditingDev(d); setPhoneError(''); setShowModal(true); }}
-                  className="w-8 h-8 flex items-center justify-center bg-white/5 hover:bg-white/10 text-white/20 hover:text-text-main rounded-xl transition-all active:scale-90"
+                  className="w-7 h-7 flex items-center justify-center bg-white/5 hover:bg-white/10 text-white/20 hover:text-text-main rounded-lg transition-all active:scale-90"
                 >
-                  <Edit size={14} />
+                  <Edit size={12} />
                 </button>
                 <button
                   onClick={() => handleDeleteClick(d.id)}
-                  className="w-8 h-8 flex items-center justify-center bg-white/5 hover:bg-white/10 text-white/20 hover:text-danger rounded-xl transition-all active:scale-90"
+                  className="w-7 h-7 flex items-center justify-center bg-white/5 hover:bg-white/10 text-white/20 hover:text-danger rounded-lg transition-all active:scale-90"
                 >
-                  <Trash2 size={14} />
+                  <Trash2 size={12} />
                 </button>
               </div>
             </div>
@@ -1181,15 +1181,15 @@ const PipelineManager: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/20">
-            <Kanban size={18} />
+    <div className="space-y-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/20">
+            <Kanban size={16} />
           </div>
           <div>
-            <h3 className="text-[17px] font-bold text-text-main tracking-tight">Pipeline de ventas</h3>
-            <p className="text-[10px] text-text-muted font-bold opacity-40">Gestión de etapas y procesos comerciales</p>
+            <h3 className="text-[15px] font-bold text-text-main tracking-tight">Pipeline de ventas</h3>
+            <p className="text-[9px] text-text-muted font-bold opacity-40">Gestión de etapas y procesos comerciales</p>
           </div>
         </div>
 
@@ -1209,10 +1209,10 @@ const PipelineManager: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-surface/30 backdrop-blur-xl border border-white/5 rounded-[1.5rem] p-4 shadow-sm">
-        <div className="space-y-2.5 max-w-4xl mx-auto">
+      <div className="bg-surface/30 backdrop-blur-xl border border-white/5 rounded-xl p-3 shadow-sm">
+        <div className="space-y-2 max-w-4xl mx-auto">
           {stages.map((stage, index) => (
-            <div key={stage.id} className="flex flex-col md:flex-row items-start md:items-center gap-3 bg-surface/50 border border-white/5 p-2 rounded-2xl group hover:border-primary/20 transition-all">
+            <div key={stage.id} className="flex flex-col md:flex-row items-start md:items-center gap-2 bg-surface/50 border border-white/5 p-1.5 rounded-xl group hover:border-primary/20 transition-all">
               <div className="w-7 h-7 flex items-center justify-center bg-background/50 rounded-xl font-bold text-text-muted text-[11px] border border-white/5 shrink-0 shadow-inner">
                 {index + 1}
               </div>
@@ -1353,15 +1353,15 @@ const SourcesManager: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/20">
-            <Share2 size={18} />
+    <div className="space-y-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary shadow-lg shadow-primary/5 border border-primary/20">
+            <Share2 size={16} />
           </div>
           <div>
-            <h3 className="text-[17px] font-bold text-text-main tracking-tight">Fuentes de origen</h3>
-            <p className="text-[10px] text-text-muted font-bold opacity-40">Canales de captación de leads</p>
+            <h3 className="text-[15px] font-bold text-text-main tracking-tight">Fuentes de origen</h3>
+            <p className="text-[9px] text-text-muted font-bold opacity-40">Canales de captación de leads</p>
           </div>
         </div>
 
@@ -1377,18 +1377,17 @@ const SourcesManager: React.FC = () => {
           </div>
           <button
             onClick={handleAdd}
-            className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-xl flex items-center justify-center gap-2 text-[11px] font-bold shadow-xl shadow-primary/20 transition-all active:scale-95 shrink-0"
+            className="bg-primary hover:bg-primary/90 text-white px-4 py-1.5 rounded-xl flex items-center justify-center gap-2 text-[10px] font-bold shadow-xl shadow-primary/20 transition-all active:scale-95 shrink-0"
           >
-            <Plus size={16} /> Agregar
+            <Plus size={14} /> Agregar
           </button>
         </div>
       </div>
-
-      <div className="bg-surface/30 backdrop-blur-xl border border-white/5 rounded-[1.5rem] p-4 shadow-sm">
+      <div className="bg-surface/30 backdrop-blur-xl border border-white/5 rounded-xl p-3 shadow-sm">
         <div className="flex flex-wrap gap-2.5">
           {sources.map(s => (
-            <div key={s.id} className="flex items-center gap-2 bg-surface/50 border border-white/5 pl-4 pr-1.5 py-1.5 rounded-2xl group hover:border-primary/30 transition-all shadow-sm">
-              <span className="text-[11px] font-bold text-text-main tracking-tight">{s.name}</span>
+            <div key={s.id} className="flex items-center gap-2 bg-surface/50 border border-white/5 pl-3 pr-1 py-1 rounded-xl group hover:border-primary/30 transition-all shadow-sm">
+              <span className="text-[10px] font-bold text-text-main tracking-tight">{s.name}</span>
               <button
                 onClick={() => handleDelete(s.id)}
                 className="w-6 h-6 flex items-center justify-center text-text-muted hover:text-danger hover:bg-danger/10 rounded-lg transition-all"
@@ -1398,7 +1397,7 @@ const SourcesManager: React.FC = () => {
             </div>
           ))}
           {sources.length === 0 && (
-            <div className="w-full py-16 text-center border-2 border-dashed border-white/5 rounded-[2.5rem] bg-white/[0.02]">
+            <div className="w-full py-12 text-center border-2 border-dashed border-white/5 rounded-xl bg-white/[0.02]">
               <Share2 size={40} className="mx-auto text-text-muted opacity-10 mb-4" />
               <p className="text-[11px] font-bold text-text-muted opacity-40 italic tracking-widest uppercase">Cero orígenes configurados</p>
             </div>
