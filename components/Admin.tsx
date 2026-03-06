@@ -530,7 +530,7 @@ const UsersManager: React.FC = () => {
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
               placeholder="Buscar colaborador..."
-              className="w-full bg-input-bg border border-border-color/50 rounded-xl pl-10 pr-4 py-2 text-[11px] font-bold text-text-main outline-none focus:border-primary/40 focus:bg-surface/50 transition-all shadow-inner placeholder:text-text-muted/40"
+              className="w-full bg-input-bg dark:bg-input-bg border border-border-color/50 rounded-xl pl-10 pr-4 py-2 text-[11px] font-bold text-text-main outline-none focus:border-primary/40 transition-all shadow-inner placeholder:text-text-muted/40"
             />
           </div>
           <button
@@ -874,7 +874,7 @@ const ProjectsManager: React.FC = () => {
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
               placeholder="Buscar proyecto..."
-              className="w-full bg-input-bg border border-border-color/50 rounded-xl pl-10 pr-4 py-2 text-[11px] font-bold text-text-main outline-none focus:border-primary/40 focus:bg-surface/50 transition-all shadow-inner placeholder:text-text-muted/40"
+              className="w-full bg-input-bg dark:bg-input-bg border border-border-color/50 rounded-xl pl-10 pr-4 py-2 text-[11px] font-bold text-text-main outline-none focus:border-primary/40 transition-all shadow-inner placeholder:text-text-muted/40"
             />
           </div>
           <button
@@ -1368,7 +1368,7 @@ const SourcesManager: React.FC = () => {
         <div className="flex items-center gap-2 flex-1 justify-end max-w-md">
           <div className="relative flex-1">
             <input
-              className="w-full bg-input-bg border border-border-color/50 rounded-xl pl-4 pr-4 py-2 text-[11px] font-bold text-text-main outline-none focus:border-primary/40 focus:bg-surface/50 transition-all shadow-inner placeholder:text-text-muted/40"
+              className="w-full bg-input-bg dark:bg-input-bg border border-border-color/50 rounded-xl pl-4 pr-4 py-2 text-[11px] font-bold text-text-main outline-none focus:border-primary/40 transition-all shadow-inner placeholder:text-text-muted/40"
               placeholder="Nueva fuente (ej: Instagram Ads)..."
               value={newSource}
               onChange={(e) => setNewSource(e.target.value)}
